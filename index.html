@@ -25,18 +25,50 @@
 			</section>
  
 			<section id="show-a-link">
-				<h1>Toinen sivu</h1>
-				<p>Slide 2 jolle tulee myöhemmin varmaankin tavaraa</p>
+				<h1>Kolme mielestäni tärkeää protokollaa</h1>
+				<ul>
+					<li>TCP</li>
+					<li>WebSocket</li>
+					<li>HTTP</li>
+				</ul>
 				
 			</section>
  
 			<section>
 				<section>
-				<h1>Slide 3</h1>
-				<p>Ja sivu kolme josta pääsee myös alaspäin</p>
+				<h1>TCP-protokolla</h1>
+				<p>Transmission control protocol</p>
 				</section>
 				<section>
-					<p>Ja täällä on vain hieman matalamman tason tekstiä</p>
+					<ul>
+					<li>TCP tarjoaa luotettavan, järjestetyn ja virhetarkistetut datan liikuttamisen järjestelmien välillä</li>
+					<li>Järjestyksen ja pakettien uudelleen lähettämisen mahdollistamiseksi TCP:hen on kehitetty vuonvalvonta- ja ruuhkanhallintamekanismeja</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Yhteyden vaiheet</h1>
+					<ul>
+						<li>Muodostamisessa käytetään kolmitiekättelyä. Tässä kättelyssä client lähettää ensin SYN-paketin. SYN-paketin saatuaan vastaanottanut laite vastaa lähettäjälle SYN/ACK-paketilla kohdelaitteelle.</li>
+						<li>Tiedonsiirrossa ja sen aikana käytetään erinäisiä mekanismeja luotettavuuden parantamiseksi. Näihin lukeutuu ainakin sekvenssinumerointi, tarkistussummat, ajastimet ja tunnistimet.</li>
+						<li>Yhteys päätetään joko nelitiekättelyllä tai kolmitiekättelyllä. Nelitiekättelyssä molemmat osapuolet lähettävät FIN-paketin ja tähän vastataan ACK-paketilla. Kolmitiekättelyssä vain toinen osapuoli lähettää FIN-paketin ja tähän vastataan FIN/ACK-paketilla.</li>
+
+					</ul>
+				</section>	
+
+				<section>
+						<h1>TCP:n laajuus</h1>
+						<ul>
+								<li>TCP-yhteyttä käytetään pohjana ainakin seuraavissa protokollissa:</li>
+								<ul>
+									<li>HTTP</li>
+									<li>Telnet</li>
+									<li>SSH</li>
+									<li>FTP</li>
+									<li>WebSocket</li>
+								</ul>
+								<li>TCP toimii näissä protokollissa yleensä tiedonsiirtorajapintana</li>
+						</ul>
 				</section>
 			</section>
  
