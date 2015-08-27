@@ -71,7 +71,70 @@
 						</ul>
 				</section>
 			</section>
- 
+ 			
+
+			<section>
+
+				<section>
+					<h1>WebSocket</h1>
+				</section>
+				<section>
+					<ul>
+						<li>WebSocket protokolla tarjoaa 2-suuntaisen yhteyden yhden TCP-yhteyden ylitse.</li>
+						<li>TCP:n käyttö vähentää huomattavasti verkkoliikenteen tarvetta ja viivettä.</li>
+						<li>Tämä saavutetaan sillä, että yhteys pidetään jatkuvasti avoimena ja tarvitaan vain yksi TCP-yhteys, kun taas esim. HTTP:ssä tarvitaan jatkuvia päivittyviä kyselyitä ja yksi avoin yhteys molempiin suuntiin</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>WebSocketin edut</h1>
+					<ul>
+						<li>Vähemmän kuormaa servereille</li>
+						<li>Automaattimen proxyn läpi yhdistäminen</li>
+						<li>WebSocket-yhteys alkaa aina HTTP-yhteytenä --> yhteensopiva vanhempien järjestelmien kanssa</li>
+					</ul>	
+				</section>
+					<h1>Yhdistys</h1>
+					<ul>
+						<li>Yhdistettäessä client lähettää pyynnön vaihtaa protokolla WebSocketiksi</li>
+						<li>Onnistuneen kättelyn jälkeen HTTP-yhteys hajotetaan, ja tilalle tulee WebSocket-yhteys saman TCP/IP-yhteyden päälle.</li>
+					</ul>
+				<section>
+
+				</section>
+
+			</section>
+
+
+			<section>
+				<section>
+					<h1>HTTP</h1>
+					<p>Hypertext Transfer Protocol</p>
+				</section>
+				<section>
+					<ul>
+						<li>Protokolla jota selaimet ja palvelimet käyttävät keskinäiseen tiedonsiirtoon</li>
+
+					</ul>
+				</section>
+				<section>
+					<h2>Normaalikäytäntö</h2>
+					<ul>
+						<li>Ensin otetaan yhteyttä esimerkiksi selaimella palvelimeen TCP:n yli ja lähetetään pyyntö.</li>
+						<li>Serveri vastaa pyyntöön lähettämällä jotain takaisin</li>
+					</ul>
+				</section>
+
+				<section>
+					<ul>
+						<li>Http-yhteys on perusominaisuudeltaan ns. "tilaton", eli se ei tallenna käyttäjän istuntoa tai tietoja millään tavalla</li>
+						<li>Tietojen tallentamisessa käytetäänkin evästeitä(cookies)</li>
+					</ul>
+				</section>
+
+
+			</section>
+
 			</div>
 	</div>
 	<script src="lib/js/head.min.js"></script>
