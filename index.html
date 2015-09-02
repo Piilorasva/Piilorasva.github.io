@@ -136,6 +136,41 @@
 
 			</section>
 
+			<section>
+				<section>
+				<h3><a id="1_Sovelluksen_luonti_OpenShiftiin_0"></a>1) Sovelluksen luonti OpenShiftiin</h3>
+<p>Sovelluksen luonti onnistui kirjoittamalla seuraavanlainen komento komentokehotteeseen windowsissa:</p>
+<pre><code>rhc app <span class="hljs-keyword">create</span> irclokki nodejs-<span class="hljs-number">0.10</span> --<span class="hljs-keyword">from</span>-code  https:<span class="hljs-comment">//github.com/jvanhalen/irclokki.git</span>
+</code></pre> 
+</section>
+<section>
+<h3><a id="2_Lis_mysqlcartridge_OpenShiftsovellukseen_6"></a>2) Lisää mysql-cartridge OpenShift-sovellukseen</h3>
+<p>Mysql-lisäosan lisääminen sovellukseen taas onnistui seuraavanlaisella komennolla:</p>
+<pre><code>rhc cartridge <span class="hljs-built_in">add</span> mysql-<span class="hljs-number">5.5</span> -<span class="hljs-operator">a</span> irclokki
+</code></pre>
+<p>Toinen vaihtoehto mitä myös kokeilin on se, että mysql-moduuli lisätään openshiftin nettisivuilla graafisen käyttöliittymän kautta.</p>
+</section>
+<section>
+<h3><a id="3_Editoi_tietokanta_kuntoon_14"></a>3) Editoi tietokanta kuntoon</h3>
+<p>Tietokantaa editoidakseni minun täytyi käyttää puttya, koska windowsin komentokehotteella ssh-yhdistyksessä oli ongelmaa. Puttyn käyttöön hyvät ohjeet löytyivät täältä:
+<a href="https://developers.openshift.com/en/managing-remote-connection.html#download-the-putty-installer">https://developers.openshift.com/en/managing-remote-connection.html#download-the-putty-installer</a></p>
+<p>Puttylla yhdistämistä varten tarvittiin sovelluksen ssh-osoite. Osoitteen sai selville kirjoittamalla komentokehoitteeseen rhc app-show irclokki. Puttylla yhdistämisen jälkeen ajoin seuraavat komennot:</p>
+<pre><code>mysql 
+<span class="hljs-operator"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">exists</span> irclog;</span>
+<span class="hljs-operator"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> irclog;</span>
+<span class="hljs-operator"><span class="hljs-keyword">USE</span> irclog;</span>
+<span class="hljs-operator"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">log</span> (id <span class="hljs-built_in">INT</span> <span class="hljs-keyword">PRIMARY</span> <span class="hljs-keyword">KEY</span> AUTO_INCREMENT, <span class="hljs-keyword">timestamp</span> <span class="hljs-built_in">BIGINT</span>, message <span class="hljs-built_in">TEXT</span>);</span> 
+</code></pre>
+<p>Seuraavaksi starttaa sovellus omalta koneelta</p>
+<pre><code><span class="hljs-title">rhc</span> app-restart irclokki
+</code></pre>
+</section>
+<section>
+<h4><a id="Omia_tuntemuksia_tehtvst_35"></a>Omia tuntemuksia tehtävästä</h4>
+<p>Tehtävä ei ollut varsinaisesti vaikea. Pitkään kuitenkin pähkäilin, miksi oma bottini ei kanavalla näkynyt. Tämä kuitenkin taisi olla enemmän irc:n puolella oleva vika ja yhtäkkiä botti rupesikin pelittämään.</p>
+</section>
+			</section>
+
 			</div>
 	</div>
 	<script src="lib/js/head.min.js"></script>
